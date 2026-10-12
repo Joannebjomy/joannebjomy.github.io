@@ -12,7 +12,7 @@ Built by **Joanne** with plain HTML, CSS and JavaScript.
 
 ##  Project Overview
 
-**Idea:** A personal portfolio that tells *My story*. Rather than a list of projects, it reads like a journal giving a homely feel
+**Idea:** A personal portfolio that tells *My story*. Rather than a list of projects, it reads like a journal showcasing my journey.
 
 **Purpose:** To show who I am through the things I've built.
 
