@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Making of an Engineer · Joanne's Journal</title>
+  <meta name="description" content="Joanne's field journal: a fractal generator, an RFID attendance system and a machine learning early-warning model, told as chapters of a book.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ Chapter tabs (navigation) ============ -->
+<nav class="tabs" aria-label="Chapters">
+  <a href="#title" class="tab tab-cover" data-tab>Cover</a>
+  <a href="#chapter-1" class="tab tab-1" data-tab>I</a>
+  <a href="#chapter-2" class="tab tab-2" data-tab>II</a>
+  <a href="#chapter-3" class="tab tab-3" data-tab>III</a>
+  <a href="#skills" class="tab tab-skills" data-tab>Skills</a>
+  <a href="#next" class="tab tab-next" data-tab>Next</a>
+  <a href="#author" class="tab tab-author" data-tab>Author</a>
+</nav>
+
+<main class="binder">
+
+  <!-- ============ Title page + contents ============ -->
+  <section class="spread" id="title">
+    <div class="page page-left title-page">
+      <p class="hand note-top">property of Joanne ✎ if found, please return</p>
+      <p class="presents">Ms. Joanne<br><span>is proud to present</span></p>
+      <h1>The Making of an&nbsp;Engineer</h1>
+      <p class="subtitle">a field journal of things I built,<br>what broke, and what I learned</p>
+      <div class="ornament" aria-hidden="true">
+        <svg viewBox="0 0 220 24"><path d="M2 12h80M138 12h80" stroke="currentColor" stroke-width="1.2"/><path d="M110 3c-8 6-8 12 0 18 8-6 8-12 0-18zM96 12c-6-4-10-4-14 0 4 4 8 4 14 0zM124 12c6-4 10-4 14 0-4 4-8 4-14 0z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+      </div>
+      <p class="byline">kept by <strong>Joanne</strong></p>
+      <p class="meta">B.Tech Computer Science (AI &amp; ML), first year · Vellore</p>
+      <div class="seal" aria-hidden="true"><span>Vol.<br>I</span></div>
+    </div>
+
+    <div class="page page-right contents-page">
+      <div class="ribbon">
+        <svg viewBox="0 0 340 78" aria-hidden="true">
+          <path class="ribbon-tail" d="M44 26H4l16 18-16 18h40z"/>
+          <path class="ribbon-tail" d="M296 26h40l-16 18 16 18h-40z"/>
+          <path class="ribbon-fold" d="M44 26l14 8v28l-14-0z"/>
+          <path class="ribbon-fold" d="M296 26l-14 8v28l14 0z"/>
+          <path class="ribbon-band" d="M36 18Q170 2 304 18V56Q170 40 36 56Z"/>
+          <path class="ribbon-curl" d="M4 44c-6 10 4 22 14 14M336 44c6 10-4 22-14 14"/>
+        </svg>
+        <h2 class="page-heading">A Map of This Journal</h2>
+      </div>
+      <ol class="contents">
+        <li><a href="#chapter-1"><span class="num">I</span><span class="ttl">Strings into Art</span><span class="dots"></span><span class="pg">the fractal generator</span></a></li>
+        <li><a href="#chapter-2"><span class="num">II</span><span class="ttl">The Card That Remembers</span><span class="dots"></span><span class="pg">SmartAttend</span></a></li>
+        <li><a href="#chapter-3"><span class="num">III</span><span class="ttl">Reading the Early Signs</span><span class="dots"></span><span class="pg">Early Warning ML</span></a></li>
+        <li><a href="#skills"><span class="num">✦</span><span class="ttl">Skills Collected</span><span class="dots"></span><span class="pg">inventory</span></a></li>
+        <li><a href="#next"><span class="num">✧</span><span class="ttl">The Next Chapter</span><span class="dots"></span><span class="pg">IEEE WIE</span></a></li>
+        <li><a href="#author"><span class="num">❦</span><span class="ttl">About the Author</span><span class="dots"></span><span class="pg">say hello</span></a></li>
+      </ol>
+      <p class="hand margin-note">I solemnly promise: every chapter<br>has something you can try ↓</p>
+    </div>
+  </section>
+
+  <!-- ============ Chapter I: Fractals ============ -->
+  <section class="spread" id="chapter-1">
+    <div class="page page-left">
+      <p class="chapter-label">Chapter I</p>
+      <h2>Strings into Art</h2>
+      <p class="lede">My first project started with a strange idea: can a single line of text grow into a plant?</p>
+      <p>An <em>L-system</em> is a tiny set of rewrite rules. Start with a short string like <code>X</code>, and replace every letter with a longer pattern, again and again. After a few rounds the string is thousands of characters long.</p>
+      <p>Then a "turtle" reads it as drawing instructions: <code>F</code> means move forward, <code>+</code> and <code>−</code> mean turn, and <code>[ ]</code> means remember a spot and come back to it. That last rule is what makes branches.</p>
+      <div class="rule-card">
+        <p class="hand">the fern's rules</p>
+        <code>X → F+[[X]−X]−F[−FX]+X</code><br>
+        <code>F → FF</code>
+      </div>
+      <aside class="lore">
+        <p class="lore-label">for my fellow bookworms :)</p>
+        <p>In <cite>The Battle of the Labyrinth</cite>, Daedalus's maze keeps rebuilding itself from rules nobody can see. An L-system feels a bit like that: a tiny rulebook that keeps growing into something much bigger.</p>
+      </aside>
+      <p class="quest-status"><span class="badge badge-done">Quest complete</span> Built in Python with turtle graphics</p>
+      <a class="ink-link" href="https://github.com/Joannebjomy/L-FRACTAL-SYSTEM-PYTHON" target="_blank" rel="noopener">Read the code on GitHub</a>
+    </div>
+
+    <div class="page page-right">
+      <figure class="specimen">
+        <div class="tape tape-tl" aria-hidden="true"></div>
+        <div class="tape tape-tr" aria-hidden="true"></div>
+        <canvas id="fractal" width="520" height="460" aria-label="A fractal drawn by an L-system" role="img"></canvas>
+        <figcaption class="hand" id="fractal-caption">specimen no. 1: fern, 5 generations</figcaption>
+      </figure>
+      <div class="controls">
+        <label class="field">Pattern
+          <select id="pattern">
+            <option value="fern">Fern</option>
+            <option value="bush">Bush</option>
+            <option value="dragon">Dragon curve</option>
+            <option value="snowflake">Snowflake</option>
+          </select>
+        </label>
+        <button class="btn" id="grow">Grow it</button>
+      </div>
+      <p class="readout" id="fractal-readout" aria-live="polite"></p>
+      <p class="hand margin-note small">rewritten in JavaScript for this page, same idea as my Python version</p>
+    </div>
+  </section>
+
+  <!-- ============ Chapter II: SmartAttend ============ -->
+  <section class="spread" id="chapter-2">
+    <div class="page page-left">
+      <p class="chapter-label">Chapter II</p>
+      <h2>The Card That Remembers</h2>
+      <p class="lede">In many rural schools, a child can quietly stop coming to class long before anyone notices. I wanted the school and the family to know the same day, so I built a reader that marks attendance in one tap.</p>
+      <p><strong>SmartAttend</strong> is an RFID attendance system. A student taps their ID card on an <strong>RC522</strong> reader wired to an <strong>ESP32</strong>. The little OLED screen welcomes them by name and the LED turns green.</p>
+      <p>Behind it, a <strong>Python</strong> backend logs every tap and feeds a <strong>Streamlit</strong> teacher dashboard with:</p>
+      <ul class="features-list">
+        <li><b>Roll call</b> with alerts when a parent can't be reached, and a teacher override</li>
+        <li><b>Meals:</b> a live cafeteria count and month-by-month meal-wastage trends</li>
+        <li><b>Resources:</b> library and equipment checkout with the same card tap</li>
+      </ul>
+      <ol class="flow" aria-label="How SmartAttend works">
+        <li>Card tap</li><li>ESP32 reads the ID</li><li>Python logs it</li><li>Dashboard updates</li>
+      </ol>
+      <p>Right now I'm adding a face check with an <strong>ESP32-S3-CAM</strong>, so nobody can tap in for a friend.</p>
+      <aside class="lore">
+        <p class="lore-label">for my fellow bookworms :)</p>
+        <p>Want to experience what would happen when you toss a drachma into a rainbow for an Iris-message? Check it out with my SmartAttend system, where an SMS is sent to parents ;)</p>
+      </aside>
+      <p class="quest-status"><span class="badge badge-progress">Quest in progress</span> Camera face check</p>
+
+      <figure class="polaroid">
+        <div class="tape tape-top" aria-hidden="true"></div>
+        <img src="smartattend-still.jpg" alt="The SmartAttend reader: an RC522 RFID module and OLED screen showing a welcome message as a card is tapped" width="480" height="360">
+        <figcaption class="hand">the real thing, on my desk</figcaption>
+      </figure>
+    </div>
+
+    <div class="page page-right">
+      <h3 class="try-heading">Watch it work</h3>
+      <p class="small-note">Real footage of SmartAttend running: the reader, then the teacher dashboard.</p>
+
+      <figure class="film">
+        <div class="tape tape-tl" aria-hidden="true"></div>
+        <div class="tape tape-tr" aria-hidden="true"></div>
+        <video id="sa-video" controls preload="metadata" playsinline poster="smartattend-poster.jpg">
+          <source src="smartattend.mp4" type="video/mp4">
+          Your browser can't play this video. <a href="smartattend.mp4">Download it instead.</a>
+        </video>
+        <figcaption class="hand">field footage: SmartAttend, 1 min 19 s</figcaption>
+      </figure>
+
+      <div class="scenes">
+        <p class="hand">jump to a scene</p>
+        <ol>
+          <li><button data-time="0"><span class="tc">0:00</span>The reader on my desk</button></li>
+          <li><button data-time="8"><span class="tc">0:08</span>Tapping a card: "Welcome!"</button></li>
+          <li><button data-time="21"><span class="tc">0:21</span>Roll call on the dashboard</button></li>
+          <li><button data-time="27"><span class="tc">0:27</span>Parent alerts &amp; teacher override</button></li>
+          <li><button data-time="36"><span class="tc">0:36</span>Cafeteria count</button></li>
+          <li><button data-time="42"><span class="tc">0:42</span>Meal-wastage trends</button></li>
+          <li><button data-time="51"><span class="tc">0:51</span>Library checkout with a card tap</button></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Chapter III: Early Warning ============ -->
+  <section class="spread" id="chapter-3">
+    <div class="page page-left">
+      <p class="chapter-label">Chapter III</p>
+      <h2>Reading the Early Signs</h2>
+      <p class="lede">SmartAttend collects attendance. But does attendance actually tell us anything? I went looking for an answer in data.</p>
+      <p>Using records of <strong>395 maths students</strong>, I trained two machine learning models to predict, <em>after the first term</em>, who is likely to fail the final exam, so a teacher can help while there's still time.</p>
+
+      <div class="finding">
+        <p class="hand">the finding that made it real</p>
+        <div class="bars" aria-label="Pass rate by days missed">
+          <div class="bar"><span style="--h:84%"></span><b>84%</b><small>0 days</small></div>
+          <div class="bar"><span style="--h:78%"></span><b>78%</b><small>1–5</small></div>
+          <div class="bar"><span style="--h:74%"></span><b>74%</b><small>6–10</small></div>
+          <div class="bar bar-low"><span style="--h:55%"></span><b>55%</b><small>10+</small></div>
+        </div>
+        <p class="small-note">Pass rate by number of days missed</p>
+      </div>
+
+      <ul class="results">
+        <li><strong>Decision Tree:</strong> caught 25 of 26 failing students using one rule: <em>term-1 grade ≤ 10.5</em>.</li>
+        <li><strong>KNN:</strong> most accurate overall, 81% on unseen students, using grade, absences and past failures.</li>
+      </ul>
+      <aside class="lore">
+        <p class="lore-label">for my fellow bookworms :)</p>
+        <p>Let me take you all to the modern Oracle's prophecies! Behold the early student prediction system, which prophesies who might pass and who might not. Cool, isn't it?</p>
+      </aside>
+      <p class="quest-status"><span class="badge badge-done">Quest complete</span> scikit-learn, pandas, Jupyter</p>
+      <a class="ink-link" href="https://github.com/Joannebjomy/student-performance" target="_blank" rel="noopener">Read the notebook on GitHub</a>
+    </div>
+
+    <div class="page page-right">
+      <h3 class="try-heading">Try it: am I at risk?</h3>
+      <p class="small-note">This runs my real KNN model (k = 11), trained on the same 316 students as the notebook.</p>
+
+      <form class="checker" id="checker">
+        <label class="field field-range">
+          <span>First-term grade <output id="g1-out">10</output><small> / 20</small></span>
+          <input type="range" id="g1" min="0" max="20" value="10">
+        </label>
+        <label class="field field-range">
+          <span>Days missed <output id="abs-out">4</output></span>
+          <input type="range" id="absences" min="0" max="40" value="4">
+        </label>
+        <fieldset class="field">
+          <legend>Past classes failed</legend>
+          <div class="segmented">
+            <label><input type="radio" name="failures" value="0" checked><span>0</span></label>
+            <label><input type="radio" name="failures" value="1"><span>1</span></label>
+            <label><input type="radio" name="failures" value="2"><span>2</span></label>
+            <label><input type="radio" name="failures" value="3"><span>3</span></label>
+          </div>
+        </fieldset>
+        <button class="btn" type="submit">Check the signs</button>
+      </form>
+
+      <div class="verdict" id="verdict" aria-live="polite" hidden>
+        <div class="verdict-stamp" id="verdict-stamp"></div>
+        <p id="verdict-text"></p>
+        <p class="small-note" id="verdict-tree"></p>
+      </div>
+      <p class="hand margin-note small">a model can flag a student, but a teacher is the one who helps ♡</p>
+    </div>
+  </section>
+
+  <!-- ============ Skills inventory ============ -->
+  <section class="spread spread-single" id="skills">
+    <div class="page page-full">
+      <p class="chapter-label">Inventory</p>
+      <h2>Skills Collected</h2>
+      <p class="lede">Every quest left me with something new. Here's what's in my bag so far, and where I picked it up.</p>
+      <div class="inventory">
+        <article class="item">
+          <div class="item-icon" aria-hidden="true">🐍</div>
+          <h3>Python</h3>
+          <p>Recursion, string rewriting, data wrangling, backend logic.</p>
+          <p class="found">found in Chapters I, II, III. Always in my pocket, like Riptide</p>
+        </article>
+        <article class="item">
+          <div class="item-icon" aria-hidden="true">📟</div>
+          <h3>ESP32 &amp; RFID</h3>
+          <p>Wiring an RC522 reader, reading card IDs, sending them over Wi-Fi.</p>
+          <p class="found">found in Chapter II</p>
+        </article>
+        <article class="item">
+          <div class="item-icon" aria-hidden="true">🔗</div>
+          <h3>APIs</h3>
+          <p>Google Sheets for logging, Twilio for SMS alerts.</p>
+          <p class="found">found in Chapter II</p>
+        </article>
+        <article class="item">
+          <div class="item-icon" aria-hidden="true">📈</div>
+          <h3>Machine learning</h3>
+          <p>pandas, scikit-learn, cross-validation, confusion matrices.</p>
+          <p class="found">found in Chapter III</p>
+        </article>
+        <article class="item">
+          <div class="item-icon" aria-hidden="true">📊</div>
+          <h3>Streamlit</h3>
+          <p>Turning a Python script into a live dashboard.</p>
+          <p class="found">found in Chapter II</p>
+        </article>
+        <article class="item">
+          <div class="item-icon" aria-hidden="true">🖋️</div>
+          <h3>HTML, CSS &amp; JS</h3>
+          <p>This journal: layout, responsive design, the interactive demos.</p>
+          <p class="found">found on this very page</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Next chapter ============ -->
+  <section class="spread" id="next">
+    <div class="page page-left">
+      <p class="chapter-label">The Next Chapter</p>
+      <h2>Building with IEEE&nbsp;WIE</h2>
+      <p class="lede">So far I've mostly built alone. The next chapter, I'd like to write with other people.</p>
+      <p>I want to join IEEE Women in Engineering to build with people who are also learning, to run hands-on workshops that make a first circuit or a first model feel less intimidating, and to help more women see engineering as a place they belong.</p>
+    </div>
+    <div class="page page-right">
+      <h3 class="try-heading">Quest log: upcoming</h3>
+      <p class="small-note">At Camp Half-Blood, quests arrive with a prophecy. Mine come with a to-do list.</p>
+      <ul class="quest-log" id="quest-log">
+        <li><label><input type="checkbox"><span><b>Finish the face check</b><small>ESP32-S3-CAM for SmartAttend</small></span></label></li>
+        <li><label><input type="checkbox"><span><b>Feed real data to the model</b><small>connect SmartAttend logs to Early Warning</small></span></label></li>
+        <li><label><input type="checkbox"><span><b>Run my first workshop</b><small>"Your first ESP32 project", with WIE</small></span></label></li>
+        <li><label><input type="checkbox"><span><b>Build at a hackathon</b><small>with a team this time</small></span></label></li>
+      </ul>
+      <p class="hand margin-note small">go on, tick one off for me ✓</p>
+    </div>
+  </section>
+
+  <!-- ============ About the author ============ -->
+  <section class="spread spread-single" id="author">
+    <div class="page page-full author-page">
+      <div class="author-grid">
+        <figure class="polaroid polaroid-author">
+          <div class="tape tape-top" aria-hidden="true"></div>
+          <img src="me.jpg" alt="Joanne, smiling" width="640" height="800">
+          <figcaption class="hand">the author</figcaption>
+        </figure>
+        <div>
+          <p class="chapter-label">About the Author</p>
+          <h2>Hi, I'm Joanne</h2>
+          <p class="lede">I'm a first-year B.Tech Computer Science (AI &amp; ML) student in Vellore. I was a reader long before I was a builder. I grew up wandering the corridors of Hogwarts and the cabins of Camp Half-Blood, which is probably why my portfolio turned into a book.</p>
+          <p>When I'm not building, you'll usually find me in a café with a novel, or watching a movie. I also love helping people, and that's where SmartAttend came from: I wanted to build something that helps keep children in rural areas in school.</p>
+          <ul class="favourites" aria-label="Things I love">
+            <li><span aria-hidden="true">📚</span> reading</li>
+            <li><span aria-hidden="true">☕</span> cafés</li>
+            <li><span aria-hidden="true">🎬</span> movies</li>
+            <li><span aria-hidden="true">🤝</span> helping others</li>
+          </ul>
+          <div class="contact">
+            <a class="btn" href="https://www.linkedin.com/in/joanne-jomy-560a3b425/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+            <a class="btn btn-quiet" href="https://github.com/Joannebjomy" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <p class="colophon">The end of this volume. Mischief managed.</p>
+    </div>
+  </section>
+
+</main>
+
+<button class="to-top" id="to-top" aria-label="Back to the cover">↑ Cover</button>
+
+<script src="model-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
