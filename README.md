@@ -12,11 +12,11 @@ Built by **Joanne** with plain HTML, CSS and JavaScript.
 
 ##  Project Overview
 
-**Idea:** A personal portfolio that tells my story as a *builder's journey*. Rather than a list of projects, it reads like a journal: a title page, a table of contents, three chapters (one per project), an inventory of skills, my next chapter, and an "About the Author" page.
+**Idea:** A personal portfolio that tells *My story*. Rather than a list of projects, it reads like a journal giving a homely feel
 
-**Purpose:** To show who I am through the things I've built. Visitors can actually *use* my projects in the browser, not just read about them.
+**Purpose:** To show who I am through the things I've built.
 
-**Target audience:** Club recruiters (IEEE WIE), classmates and anyone curious about my projects.
+**Target audience:**  Anyone curious about my projects.
 
 ##  Features
 
