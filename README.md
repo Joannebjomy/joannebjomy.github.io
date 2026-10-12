@@ -1,16 +1,16 @@
-# 📖 The Making of an Engineer
+#  The Making of an Engineer
 
 **My portfolio website, designed as a vintage ring-bound field journal.** Each project I've built is a chapter of the book, and each chapter has something you can try.
 
 Built by **Joanne** with plain HTML, CSS and JavaScript.
 
-🔗 **Live site:** https://joannebjomy.github.io/  <!-- ✏️ EDIT if your repo name is different -->
+ **Live site:** https://joannebjomy.github.io/  <!--  EDIT if your repo name is different -->
 
 ![Preview of the journal website](preview.png)
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 **Idea:** A personal portfolio that tells my story as a *builder's journey*. Rather than a list of projects, it reads like a journal: a title page, a table of contents, three chapters (one per project), an inventory of skills, my next chapter, and an "About the Author" page.
 
@@ -18,7 +18,7 @@ Built by **Joanne** with plain HTML, CSS and JavaScript.
 
 **Target audience:** Club recruiters (IEEE WIE), classmates and anyone curious about my projects.
 
-## ✨ Features
+##  Features
 
 | Chapter | What you can do |
 |---|---|
@@ -30,11 +30,11 @@ Built by **Joanne** with plain HTML, CSS and JavaScript.
 | **Next Chapter** | A quest log of my goals that you can tick off |
 
 **Other features**
-- 🗂️ **Coloured chapter tabs** as the navigation menu. They highlight the chapter you're reading, and on mobile they become a scrollable strip along the top.
-- 📱 **Responsive:** two-page spreads on desktop, single pages on phones.
-- ♿ Keyboard friendly, visible focus outlines, and animations turn off for people who prefer reduced motion.
+-  **Coloured chapter tabs** as the navigation menu. They highlight the chapter you're reading, and on mobile they become a scrollable strip along the top.
+-  **Responsive:** two-page spreads on desktop, single pages on phones.
+-  Keyboard friendly, visible focus outlines, and animations turn off for people who prefer reduced motion.
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **HTML5:** page structure, one `<section>` per chapter
 - **CSS3:** grid and flexbox layout, custom properties for the chapter colours, media queries for responsiveness, CSS-only paper, rings, tape and stamps
@@ -46,7 +46,7 @@ Built by **Joanne** with plain HTML, CSS and JavaScript.
 - **Google Fonts:** IM Fell English, Literata, Caveat
 - **Hosting:** GitHub Pages
 
-## 🗂️ Files
+##  Files
 
 ```
 index.html       the journal: every chapter and page
@@ -58,7 +58,7 @@ smartattend-poster.jpg / smartattend-still.jpg   stills from the video
 preview.png      screenshot used in this README
 ```
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 No installation or build step is needed.
 
@@ -75,7 +75,7 @@ No installation or build step is needed.
 3. Under **Source**, choose **Deploy from a branch**, pick `main` and `/ (root)`, then click **Save**.
 4. After a minute the site is live at `https://<username>.github.io/<repo-name>/`, or at `https://<username>.github.io/` if the repo is named `<username>.github.io`.
 
-## 🔗 Related projects
+##  Related projects
 
 - [L-System Fractal Generator (Python)](https://github.com/Joannebjomy/L-FRACTAL-SYSTEM-PYTHON)
 - [Early Warning: Student Performance Prediction (ML)](https://github.com/Joannebjomy/student-performance)
